@@ -3,23 +3,7 @@ from django.shortcuts import redirect, render, HttpResponse
 
 # Create your views here.
 layout=""""
-    <h1> Sitio web con Django | Claudio Quipidlor</h1>
-    <hr/>
-    <ul>
-        <li>
-            <a href="/inicio">INICIO</a>
-        </li>
-        <li>
-            <a href="/hola-mundo">HOLA</a>
-        </li>
-        <li>
-            <a href="/pagina">PAGINA</a>
-        </li>
-        <li>
-            <a href="/contacto">CONTACTOS</a>
-        </li>
-    </ul>
-    <hr/>
+
 """
 def index(request):
     html="""

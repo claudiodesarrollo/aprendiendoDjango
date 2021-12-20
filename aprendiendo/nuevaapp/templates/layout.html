@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        {% block title%}
+        {% endblock %} | Quipildor C
+    </title>
+
+</head>
+<body>
+    <h1> Sitio web con Django | Claudio Quipidlor</h1>
+    <hr/>
+    <ul>
+        <li>
+            <a href="/inicio">INICIO</a>
+        </li>
+        <li>
+            <a href="/hola-mundo">HOLA</a>
+        </li>
+        <li>
+            <a href="/pagina">PAGINA</a>
+        </li>
+        <li>
+            <a href="/contacto">CONTACTOS</a>
+        </li>
+    </ul>
+    <hr/>
+    <div id="content"> 
+        {% block content%}
+        {% endblock%}
+    </div>
+    <footer>
+        Django &copy; Quipildor Claudio
+    </footer>
+</body>
+
+</html>
