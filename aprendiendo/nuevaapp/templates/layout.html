@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,7 +8,7 @@
         {% block title%}
         {% endblock %} | Quipildor C
     </title>
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
     <h1> Sitio web con Django | Claudio Quipidlor</h1>
@@ -28,6 +29,7 @@
     </ul>
     <hr/>
     <div id="content"> 
+        <strong> Contenido Original de template !!! </strong>
         {% block content%}
         {% endblock%}
     </div>
