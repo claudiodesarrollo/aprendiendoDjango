@@ -1,4 +1,72 @@
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: aqua;
+    background-color: whitesmoke;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+
+}
+
+header{
+    width: 1212px;
+    height: 140px;
+    background-color: azure;
+    margin: 0px auto;
+}
+
+#logotipo{
+    width: 50%;
+    height: 140px;
+    margin: 0 auto;
+}
+#logotipo img{
+    display: block;
+    width: 80px;
+    float: left;
+    margin-top: 20px;
+}
+
+#logotipo h1{
+    display: block;
+    float: left;
+    margin-left: 20px;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: #2ba977;
+}
+nav{
+    width: 1250px;
+    background-color: cadetblue;
+    border: cyan 1px;
+    box-shadow: gray 0px 22px 22px ;
+    font-size: 15px;
+
+}
+
+nav ul{
+    list-style: none;
+    text-decoration:none;
+}
+nav ul li{
+    list-style: 40px;
+    float: left;
+}
+nav ul li a{
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #2ba977;
+
+}
+
+nav ul li a:hover{
+    background: green;
+    box-shadow: 0px 0px 5px gray inset;
+    color: white;
+    transition: all 300ms;
 }

@@ -8,32 +8,45 @@
         {% block title%}
         {% endblock %} | Quipildor C
     </title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 </head>
+
 <body>
-    <h1> Sitio web con Django | Claudio Quipidlor</h1>
-    <hr/>
-    <ul>
-        <li>
-            <a href="/inicio">INICIO</a>
-        </li>
-        <li>
-            <a href="/hola-mundo">HOLA</a>
-        </li>
-        <li>
-            <a href="/pagina">PAGINA</a>
-        </li>
-        <li>
-            <a href="/contacto">CONTACTOS</a>
-        </li>
-    </ul>
-    <hr/>
-    <div id="content"> 
+    <header>
+        <div id="logotipo">
+          
+            <img src="{% static 'images/logo.png' %}"/>
+            <h1> Sitio Web con Django</h1>
+        </div>
+
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/inicio">INICIO</a>
+            </li>
+            <li>
+                <a href="/hola-mundo">HOLA</a>
+            </li>
+            <li>
+                <a href="/pagina">PAGINA</a>
+            </li>
+            <li>
+                <a href="/contacto">CONTACTOS</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <hr />
+
+    <div id="content">
+        <h2 class="title"> Titulo de Prueba</h2>
         <strong> Contenido Original de template !!! </strong>
         {% block content%}
         {% endblock%}
     </div>
-    <hr/>
+    <hr />
     <footer>
         Django &copy; Quipildor Claudio
     </footer>
