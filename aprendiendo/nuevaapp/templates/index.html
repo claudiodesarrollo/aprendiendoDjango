@@ -4,5 +4,16 @@
 {% endblock %}
 {% block content %}
 <h1> INICIO </h1>
-<p>Anos hasta el 2050</p>
+{{mi_variable}}
+{% include  'fecha-actual.html' %}
+
+
+<h3>Listado de Lenguajes</h3>
+<ul>
+{% for lenguaje  in lenguajes  %}
+    <li>{{ forloop.counter}} . {{ lenguaje }} </li>
+{% empty %}
+    <P> NO HAY LENGUAJES DE PROGRAMACION</P>
+{% endfor %} 
+</ul>
 {% endblock %}

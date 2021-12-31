@@ -6,6 +6,8 @@ layout=""""
 
 """
 def index(request):
+   
+   
     html="""
 
     """
@@ -15,7 +17,14 @@ def index(request):
             html += f"<li>{str(year)}</li>" 
         year +=1
     html+= "</ul"
-    return render(request,'index.html')
+
+    hasa=range(2021,2051)
+    lenguajes = ['java','C++','Python','PHP','C']
+    return render(request,'index.html',{
+        'mi_variable':'Soy un dato en la vista',
+        'lenguajes':lenguajes,
+        'years':hasa
+    })
 
 def holaMundo(request):
     return render(request,'holaMundo.html')

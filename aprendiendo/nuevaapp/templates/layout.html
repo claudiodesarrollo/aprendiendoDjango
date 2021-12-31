@@ -23,7 +23,7 @@
     <nav>
         <ul>
             <li>
-                <a href="/inicio">INICIO</a>
+                <a href={% url 'index' %}>INICIO</a>
             </li>
             <li>
                 <a href="/hola-mundo">HOLA</a>
@@ -37,18 +37,25 @@
         </ul>
 
     </nav>
-
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
     <hr />
 
     <div id="content">
-        <h2 class="title"> Titulo de Prueba</h2>
-        <strong> Contenido Original de template !!! </strong>
-        {% block content%}
-        {% endblock%}
+        <div class="box">
+            <h2 class="title"> Titulo de Prueba</h2>
+            <strong> Contenido Original de template !!! </strong>
+            {% block content%}
+
+            {% endblock%}
+        </div>
     </div>
     <hr />
     <footer>
-        Django &copy; Quipildor Claudio
+        Django &copy; Quipildor Claudio - {% now "Y" %} 
     </footer>
 </body>
 
