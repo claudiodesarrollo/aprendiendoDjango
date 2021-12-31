@@ -32,7 +32,11 @@ def holaMundo(request):
 def pagina(request,redirigir=0):
     if redirigir == 1:
         return redirect('/inicio/')
-    return render(request,'pagina.html')
+    
+    nombres=['Christopher Mendoza','Alexis Lopez','Matthew Garza','Barbara Jenkins','Brent Douglas','Laura Mahoney','John Fleming','Wayne Flores','Terri Wilson','Christina Watson','Thomas Melton','Isaiah Yates','Adam Mcpherson','Melissa Figueroa','Paul Elliott','Courtney Mills','Donald Young','Natalie Little','Jared Zavala']
+    return render(request,'pagina.html',{
+        'nombres':nombres
+    })
 
 def contacto(request,nombre=""):
     return HttpResponse(layout+f"<h2>CONTACTO : {nombre}</h2>")
