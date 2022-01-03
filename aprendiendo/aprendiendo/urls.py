@@ -25,6 +25,12 @@ urlpatterns = [
     path('pagina/<int:redirigir>',views.pagina,name="pagina1"),
     path('contacto/',views.contacto,name="contacto"),
     path('contacto/<str:nombre>',views.contacto,name="contacto"),
-    path('hola-mundo/', views.holaMundo,name="hola")
+    path('hola-mundo/', views.holaMundo,name="hola"),
+    path('crear-articulo/<str:title>/<str:content>/<str:public>',views.crear_articulo, name='crear_articulo'),
+    path('articulo/',views.articulo,name="articulo"),
+    path('editar/<str:id>',views.editar_articulo,name='editar'),
+    path('articulos/',views.articulos,name='articulos'),
+    path('borrar/<int:id>',views.borrar,name='borrar'),
 ]
+
 

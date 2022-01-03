@@ -1,5 +1,6 @@
+from django.http import response
 from django.shortcuts import redirect, render, HttpResponse
-
+from nuevaapp.models import Article
 
 # Create your views here.
 layout=""""
@@ -40,3 +41,48 @@ def pagina(request,redirigir=0):
 
 def contacto(request,nombre=""):
     return HttpResponse(layout+f"<h2>CONTACTO : {nombre}</h2>")
+
+
+def crear_articulo(request, title, content, public):
+    articulo= Article(
+        title= title,
+        content= content,
+        public= public
+    )
+    articulo.save()
+    return HttpResponse(f"Usuario Creado: {articulo.title} - {articulo.content}")
+
+
+def articulo(request):
+    try:
+        articulo=Article.objects.get(pk=5)
+        response= f"Articulo : {articulo.title} "
+    except:
+        response="<h2> Articulo no encontrado </h2>"
+
+    return HttpResponse(response)
+
+def editar_articulo(request,id):
+    try:
+        articulo=Article.objects.get(pk=id)
+        response= f"Articulo : {articulo.title} "
+        articulo.title ="Nuevo titulo"
+        articulo.content= "Nuevo contenido actulizado"
+        articulo.save()
+        return HttpResponse(f"Usuario Creado: {articulo.title} - {articulo.content}")
+
+    except:
+        response="<h2> Articulo no encontrado </h2>"
+
+
+def articulos(request):
+    articulos=Article.objects.all()
+
+    return render(request,'articulos.html',{
+        'articulos' : articulos
+    })
+
+def borrar(request,id):
+    articulo=Article.objects.get(pk=id)
+    articulo.delete()
+    return redirect('articulos')
