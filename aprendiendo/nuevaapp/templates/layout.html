@@ -26,6 +26,9 @@
                 <a href={% url 'index' %}>INICIO</a>
             </li>
             <li>
+                <a href={% url 'create' %}>A Articulo</a>
+            </li>
+            <li>
                 <a href="/hola-mundo">HOLA</a>
             </li>
             <li>
@@ -49,8 +52,8 @@
 
     <div id="content">
         <div class="box">
-            <h2 class="title"> Titulo de Prueba</h2>
-            <strong> Contenido Original de template !!! </strong>
+        <!--   <h2 class="title"> Titulo de Prueba</h2>
+            <strong> Contenido Original de template !!! </strong> --> 
             {% block content%}
 
             {% endblock%}

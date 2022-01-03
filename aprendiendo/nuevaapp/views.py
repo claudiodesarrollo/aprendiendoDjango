@@ -52,6 +52,25 @@ def crear_articulo(request, title, content, public):
     articulo.save()
     return HttpResponse(f"Usuario Creado: {articulo.title} - {articulo.content}")
 
+def save_article(request):
+    if request.method == 'GET':
+        title=request.GET['title']
+        content=request.GET['content']
+        public=request.GET['public']
+        articulo= Article(
+            title= title,
+            content= content,
+            public= public
+        )
+        articulo.save()
+        return HttpResponse(f"Usuario Creado: {articulo.title} - {articulo.content}")
+    else:
+        return HttpResponse(f"<h2> No se puedo guardar el articulo</h2>")
+
+def create_article(request):
+
+    return render(request,'create_article.html')
+
 
 def articulo(request):
     try:
@@ -76,7 +95,7 @@ def editar_articulo(request,id):
 
 
 def articulos(request):
-    articulos=Article.objects.all()
+    articulos=Article.objects.all().order_by('-id')
 
     return render(request,'articulos.html',{
         'articulos' : articulos
