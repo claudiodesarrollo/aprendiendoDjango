@@ -10,6 +10,8 @@ class Article(models.Model):
     created_at= models.DateTimeField(auto_now_add=True)
     update_at= models.DateTimeField(auto_now=True)
 
+    def __str__(self) -> str:
+        return f" {self.id} Titulo :{self.title } creado el {self.created_at} contenido : {self.content}"
 
 class Category(models.Model):
     name= models.CharField(max_length=100)

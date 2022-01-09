@@ -33,6 +33,7 @@ urlpatterns = [
     path('borrar/<int:id>',views.borrar,name='borrar'),
     path('save_article/',views.save_article, name='save'),
     path('create_article/',views.create_article,name='create'),
+    path('create_full_article/',views.create_full_article,name='create-full'),
 ]
 
 

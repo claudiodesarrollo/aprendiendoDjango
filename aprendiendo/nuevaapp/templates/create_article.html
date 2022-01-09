@@ -4,7 +4,8 @@
 {% endblock %}
 
 {% block content%}
-    <form action="{% url 'save' %}" method="GET">
+    <form action="{% url 'save' %}" method="POST">
+        {% csrf_token %}
         <label for="title"> Titulo </label>
         <input type="text" name="title" ></input>
         <label for="content"> Contenido </label>

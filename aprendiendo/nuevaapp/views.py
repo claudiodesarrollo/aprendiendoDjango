@@ -1,7 +1,8 @@
 from django.http import response
 from django.shortcuts import redirect, render, HttpResponse
 from nuevaapp.models import Article
-
+from nuevaapp.forms import FormArticle
+from django.contrib import messages
 # Create your views here.
 layout=""""
 
@@ -53,10 +54,10 @@ def crear_articulo(request, title, content, public):
     return HttpResponse(f"Usuario Creado: {articulo.title} - {articulo.content}")
 
 def save_article(request):
-    if request.method == 'GET':
-        title=request.GET['title']
-        content=request.GET['content']
-        public=request.GET['public']
+    if request.method == 'POST':
+        title=request.POST['title']
+        content=request.POST['content']
+        public=request.POST['public']
         articulo= Article(
             title= title,
             content= content,
@@ -71,6 +72,31 @@ def create_article(request):
 
     return render(request,'create_article.html')
 
+def create_full_article(request):
+    formulario=FormArticle()
+    if request.method=='POST':
+        formulario=FormArticle(request.POST)
+        if formulario.is_valid():
+            data_form=formulario.cleaned_data
+            title=data_form.get('title')
+            content=data_form['content']
+            public=data_form['public']
+
+            articulo= Article(
+                title= title,
+                content= content,
+                public= public
+            )
+            articulo.save()
+
+            messages.success(request,f'Articulo guardado {articulo.id}')
+            return redirect('articulos')
+           # return HttpResponse(articulo.title+' '+articulo.content+' '+str(articulo.public))
+    else:
+        formulario=FormArticle()
+    return render(request,'create_full_article.html',{
+        'form':formulario
+    })
 
 def articulo(request):
     try:
